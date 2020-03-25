@@ -1,12 +1,59 @@
 body {
-    margin: 0;
+    margin: 20px;
     font-family: Helvetica, Arial, sans-serif;
-  }
+    background-color: blue;
+    animation: funky 5s infinite;
+
+}
+
+
+@keyframes funky {
+  from {background-color: red;}
+  to {background-color: blue;}
+}
   
   nav {
     margin: 0;
   }
   
+ h1 {
+    animation:blinkingText 3s infinite;
+ }
+
+ @keyframes blinkingText{
+  0%{     color: #000;    }
+  10%{     color: rgb(5, 250, 54);    }
+  20%{     color: transparent;    }
+  30%{    color: #f2ff00; }
+  40%{     color: transparent;    }
+  50%{    color: white; }
+  60%{    color: transparent; }
+  70%{     color: rgb(106, 255, 0);    }
+  75%{      color: transparent;}
+  80%{     color: rgb(3, 247, 222);    }
+  90%{    color:transparent;  }
+  100%{   color: rgb(17, 198, 71);    }
+}
+
+a {
+  background-color: transparent;
+box-shadow: 0 2px 0 darkred;
+color: black;
+position: relative;
+text-decoration: none;
+text-transform: uppercase;
+animation:blinkingText 5s infinite;
+}
+
+a:hover {
+background-color: #ce0606;
+cursor: pointer;
+}
+
+a:active {
+box-shadow: none;
+top: 2px;
+}
   .item {
     margin-bottom: 24px;
   }
@@ -19,6 +66,18 @@ body {
     max-width: 100%; /* limit the image width to screen width */
   }
   
+  .item__author {
+    font-style: italic;
+    font-weight: bold;
+    text-align: right;
+    padding: 40px;
+  }
+
+  .item__link {
+    font-weight: bolder;
+
+  }
+
   @media (min-width: 640px) {
   
     /* this is your base rectangle */
@@ -42,6 +101,7 @@ body {
     /* this makes item go next to each other */
     .item {
       float: left;
+      padding: 10px;
     }
   
     /* this covers your chosen rectangle with the image */
@@ -58,11 +118,90 @@ body {
     }
   
     .item-b {
+      float: right;
+      padding: 2rem;
+      width: 20rem;
+    }
+
+    .item-b .square {
+      border-radius:50%;
+      overflow: hidden;
     }
   
     .item-c {
+      float: center;
+      padding: calc(100px - 3rem)
+    }
+    .item-d {
+      float: right;
+
+    }
+
+    .item-e {
+      float: center;
+    }
+
+    .item-f {
+      float: right;
+      padding: 10px;
+    }
+
+    .item-h .square {
+      float: right;
+      border-radius: 60%;
+      width: 150px;
+      height: 200px;
+      overflow: hidden;
+      
+    }
+
+    .item-g {
+      float: center;
+    }
+
+    .item-i {
+
+      padding: calc(100px - 3rem)
+
+    }
+  }
+
+  @media (min-width: 800px) {
+  
+    /* this is your base rectangle */
+    .rectangle {
+      position: relative;
+      border: 1px solid #333;
+      width: 100%;
+      height: 0;
+      transform: rotate(360deg);
+      transition: 3s;
     }
   
-    .item-d {
+    /* for 16:9 format */
+    .rectangle-16-9 {
+      padding-bottom: calc(100% / 16 * 9);
+      float: right;
     }
+  
+    /* for square format */
+    .square {
+      border-radius:50%;
+      overflow:hidden;
+    }
+  
+    /* this makes item go next to each other */
+    .item {
+      float: left;
+      padding: 50px;
+    }
+  
+    /* this covers your chosen rectangle with the image */
+    .item__img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
   }
